@@ -756,7 +756,8 @@ def _generate_bq_schema(df, default_type='STRING'):
     fields = []
     for column_name, dtype in df.dtypes.iteritems():
         fields.append({'name': column_name,
-                       'type': type_mapping.get(dtype.kind, default_type)})
+                       'type': type_mapping.get(dtype.kind, default_type),
+                       'mode': 'NULLABLE'})
 
     return {'fields': fields}
 
